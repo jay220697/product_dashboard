@@ -1,12 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from './productsSlice';
-import filtersReducer from './filtersSlice';
-import favouritesReducer from './favouritesSlice';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store/store'; // adjust the path if needed
+import './index.css'; // Tailwind or base styles
 
-export default configureStore({
-  reducer: {
-    products: productsReducer,
-    filters: filtersReducer,
-    favourites: favouritesReducer,
-  },
-});
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
